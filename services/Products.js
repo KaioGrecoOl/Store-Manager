@@ -1,4 +1,8 @@
-const { getAllProductsModels, findProductByIdModels } = require('../models/Products');
+const {
+  getAllProductsModels,
+  findProductByIdModels,
+  registerProductModels,
+} = require('../models/Products');
 
 const getAllProductsServices = async () => {
   const products = await getAllProductsModels();
@@ -12,4 +16,16 @@ const findProductByIServices = async (id) => {
   return product;
 };
 
-module.exports = { getAllProductsServices, findProductByIServices };
+const registerProductServices = async (name) => {
+  if (name) {
+    const product = await registerProductModels(name);
+    return product;
+  }
+  return [];
+};
+
+module.exports = {
+  getAllProductsServices,
+  findProductByIServices,
+  registerProductServices,
+};

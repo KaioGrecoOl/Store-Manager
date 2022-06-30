@@ -1,4 +1,8 @@
-const { getAllProductsServices, findProductByIServices } = require('../services/Products');
+const {
+  getAllProductsServices,
+  findProductByIServices,
+  registerProductServices,
+} = require('../services/Products');
 
 const getAllProductsController = async (req, res) => {
   const products = await getAllProductsServices();
@@ -16,4 +20,18 @@ const findProductByIdController = async (req, res) => {
   res.status(200).json(product);
 };
 
-module.exports = { getAllProductsController, findProductByIdController };
+const registerProductController = async (req, res) => {
+  const { name } = req.body;
+
+  const product = await registerProductServices(name);
+
+  if (!product) return res.status(400).json({ message: 'Invalid data' });
+
+  res.status(201).json(product);
+};
+
+module.exports = {
+  getAllProductsController,
+  findProductByIdController,
+  registerProductController,
+};

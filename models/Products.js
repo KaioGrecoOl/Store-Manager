@@ -18,4 +18,20 @@ const findProductByIdModels = async (id) => {
   return data[0];
 };
 
-module.exports = { getAllProductsModels, findProductByIdModels };
+const registerProductModels = async (name) => {
+  const [data] = await connection.execute(
+    'INSERT INTO StoreManager.products (name) VALUES (?)',
+    [name],
+  );
+  const result = {
+    id: data.insertId,
+    name,
+  };
+  return result;
+};
+
+module.exports = {
+  getAllProductsModels,
+  findProductByIdModels,
+  registerProductModels,
+};
