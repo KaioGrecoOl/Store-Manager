@@ -7,10 +7,12 @@ const {
   registerProductController,
 } = require('../controllers/Products');
 
+const { productValidation } = require('../middlewares/Products');
+
 router.get('/', getAllProductsController);
 
 router.get('/:id', findProductByIdController);
 
-router.post('/', registerProductController);
+router.post('/', productValidation, registerProductController);
 
 module.exports = router;
