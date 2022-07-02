@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const connection = require("../../models/connection");
-const productsModels = require('../../models/Products');
+const connection = require("../../../models/connection");
+const productsModels = require('../../../models/Products');
 
 describe("Test the file Models, products", () => {
   const mochpayLoadProducts = [{
