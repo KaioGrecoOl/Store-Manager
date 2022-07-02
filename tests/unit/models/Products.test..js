@@ -1,17 +1,20 @@
-const sinon = require('sinon');
-const { expect } = require('chai');
+const sinon = require("sinon");
+const { expect } = require("chai");
 
 const connection = require("../../../models/connection");
-const productsModels = require('../../../models/Products');
+const productsModels = require("../../../models/Products");
 
 describe("Test the file Models, products", () => {
-  const mochpayLoadProducts = [{
-    id: 1,
-    name: "Martelo de Thor",
-  }];
+  const mochpayLoadProducts = [
+    {
+      id: 1,
+      name: "Martelo de Thor",
+    },
+    { id: 2, name: "Traje de encolhimento" },
+    { id: 3, name: "Escudo do Capitão América" },
+  ];
 
   before(async () => {
-
     sinon.stub(connection, "execute").resolves(mochpayLoadProducts);
   });
 

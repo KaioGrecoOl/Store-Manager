@@ -2,7 +2,7 @@ const sinon = require("sinon");
 const { expect } = require("chai");
 
 const connection = require("../../../models/connection");
-const productsModels = require("../../../services/Products");
+const productsServices = require("../../../services/Products");
 
 describe("Test the file Services, products", () => {
   const mochpayLoadProducts = [
@@ -10,6 +10,8 @@ describe("Test the file Services, products", () => {
       id: 1,
       name: "Martelo de Thor",
     },
+    { id: 2, name: "Traje de encolhimento" },
+    { id: 3, name: "Escudo do Capitão América" },
   ];
 
   before(async () => {
@@ -21,7 +23,7 @@ describe("Test the file Services, products", () => {
   });
 
   it("Verify if show  all product", async () => {
-    const response = await productsModels.getAllProductsServices();
+    const response = await productsServices.getAllProductsServices();
     expect(response).to.be.a("object");
   });
 });
