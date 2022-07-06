@@ -30,8 +30,16 @@ const registerProductModels = async (name) => {
   return result;
 };
 
+const excludeProductModels = async (id) => {
+  const query = `DELETE FROM StoreManager.products
+    WHERE id = ?`;
+  const data = await connection.execute(query, [id]);
+  return data;
+};
+
 module.exports = {
   getAllProductsModels,
   findProductByIdModels,
   registerProductModels,
+  excludeProductModels,
 };

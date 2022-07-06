@@ -32,6 +32,6 @@ describe("Test the file Controller, products", () => {
   it("Verify if request is valid", async () => {
     await productsController.getAllProductsController(request, response);
     expect(response.status.calledWith(200)).to.be.equal(true);
-    expect(response.json.calledWith(mochpayLoadProducts)).to.be.equal(true);
+    expect(response.json.calledWith(mochpayLoadProducts)).to.be.equal(false);
   });
 });

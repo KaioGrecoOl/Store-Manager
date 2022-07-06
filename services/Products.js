@@ -2,6 +2,7 @@ const {
   getAllProductsModels,
   findProductByIdModels,
   registerProductModels,
+  excludeProductModels,
 } = require('../models/Products');
 
 const getAllProductsServices = async () => {
@@ -24,8 +25,18 @@ const registerProductServices = async (name) => {
   return [];
 };
 
+const excludeProductServices = async (id) => {
+  const product = await findProductByIdModels(id);
+  if (product) {
+    const result = await excludeProductModels(id);
+    return result;
+  }
+  return null;
+};
+
 module.exports = {
   getAllProductsServices,
   findProductByIServices,
   registerProductServices,
+  excludeProductServices,
 };
