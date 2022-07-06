@@ -3,6 +3,7 @@ const {
   findProductByIdModels,
   registerProductModels,
   excludeProductModels,
+  updateProductModels,
 } = require('../models/Products');
 
 const getAllProductsServices = async () => {
@@ -25,6 +26,15 @@ const registerProductServices = async (name) => {
   return [];
 };
 
+const updateProductServices = async (id, name) => {
+  const product = await findProductByIdModels(id);
+  if (!product) {
+    return null;
+  }
+  const result = await updateProductModels(id, name);
+  return result;
+};
+
 const excludeProductServices = async (id) => {
   const product = await findProductByIdModels(id);
   if (product) {
@@ -39,4 +49,5 @@ module.exports = {
   findProductByIServices,
   registerProductServices,
   excludeProductServices,
+  updateProductServices,
 };

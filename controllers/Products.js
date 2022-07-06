@@ -3,6 +3,7 @@ const {
   findProductByIServices,
   registerProductServices,
   excludeProductServices,
+  updateProductServices,
 } = require('../services/Products');
 
 const getAllProductsController = async (req, res) => {
@@ -33,6 +34,16 @@ const registerProductController = async (req, res) => {
   res.status(201).json(product);
 };
 
+const updateProductController = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  const result = await updateProductServices(id, name);
+  if (!result) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  return res.status(200).json(result);
+};
+
 const excludeProductControllers = async (req, res) => {
   const { id } = req.params;
   const result = await excludeProductServices(id);
@@ -51,4 +62,5 @@ module.exports = {
   findProductByIdController,
   registerProductController,
   excludeProductControllers,
+  updateProductController,
 };

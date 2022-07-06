@@ -30,6 +30,16 @@ const registerProductModels = async (name) => {
   return result;
 };
 
+const updateProductModels = async (id, name) => {
+  const query = 'UPDATE StoreManager.products SET name = ? WHERE id = ?';
+  await connection.execute(query, [name, id]);
+  const result = {
+    id,
+    name,
+  };
+  return result;
+};
+
 const excludeProductModels = async (id) => {
   const query = `DELETE FROM StoreManager.products
     WHERE id = ?`;
@@ -42,4 +52,5 @@ module.exports = {
   findProductByIdModels,
   registerProductModels,
   excludeProductModels,
+  updateProductModels,
 };
