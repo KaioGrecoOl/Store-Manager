@@ -19,7 +19,7 @@ describe("Test the file Services, products", () => {
   });
 
   after(async () => {
-    connection.execute.restore();
+    sinon.restore();
   });
 
   it("Verify if show  all product", async () => {

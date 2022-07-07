@@ -26,12 +26,12 @@ describe("Test the file Controller, products", () => {
   });
 
   after(async () => {
-    productsServices.getAllProductsServices.restore();
+    sinon.restore();
   });
 
   it("Verify if request is valid", async () => {
     await productsController.getAllProductsController(request, response);
     expect(response.status.calledWith(200)).to.be.equal(true);
-    expect(response.json.calledWith(mochpayLoadProducts)).to.be.equal(true);
+    expect(response.json.calledWith(mochpayLoadProducts)).to.be.deep.equal(true);
   });
 });

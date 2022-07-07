@@ -10,8 +10,6 @@ describe("Test the file Models, products", () => {
       id: 1,
       name: "Martelo de Thor",
     },
-    { id: 2, name: "Traje de encolhimento" },
-    { id: 3, name: "Escudo do Capitão América" },
   ];
 
   before(async () => {
@@ -19,9 +17,8 @@ describe("Test the file Models, products", () => {
   });
 
   after(async () => {
-    connection.execute.restore();
+    sinon.restore();
   });
-
   it("Verify if its an object", async () => {
     const response = await productsModels.getAllProductsModels();
     expect(response).to.be.a("object");

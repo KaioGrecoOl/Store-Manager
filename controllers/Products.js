@@ -1,15 +1,18 @@
-const {
-  getAllProductsServices,
-  findProductByIServices,
-  registerProductServices,
-  excludeProductServices,
-  updateProductServices,
-} = require('../services/Products');
+// const {
+//   getAllProductsServices,
+//   findProductByIServices,
+//   registerProductServices,
+//   excludeProductServices,
+//   updateProductServices,
+// } = require('../services/Products');
+
+const services = require('../services/Products');
 
 const getAllProductsController = async (req, res) => {
-  const products = await getAllProductsServices();
+  const products = await services.getAllProductsServices();
 
   if (!products) return res.status(400).json({ message: 'Bad request' });
+  console.log(products);
 
   res.status(200).json(products);
 };
@@ -17,7 +20,7 @@ const getAllProductsController = async (req, res) => {
 const findProductByIdController = async (req, res) => {
   const { id } = req.params;
 
-  const product = await findProductByIServices(id);
+  const product = await services.findProductByIServices(id);
 
   if (!product) return res.status(404).json({ message: 'Product not found' });
 
@@ -27,7 +30,7 @@ const findProductByIdController = async (req, res) => {
 const registerProductController = async (req, res) => {
   const { name } = req.body;
 
-  const product = await registerProductServices(name);
+  const product = await services.registerProductServices(name);
 
   if (!product) return res.status(400).json({ message: 'Invalid data' });
 
@@ -37,7 +40,7 @@ const registerProductController = async (req, res) => {
 const updateProductController = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const result = await updateProductServices(id, name);
+  const result = await services.updateProductServices(id, name);
   if (!result) {
     return res.status(404).json({ message: 'Product not found' });
   }
@@ -46,7 +49,7 @@ const updateProductController = async (req, res) => {
 
 const excludeProductControllers = async (req, res) => {
   const { id } = req.params;
-  const result = await excludeProductServices(id);
+  const result = await services.excludeProductServices(id);
 
     if (result) {
       return res.status(204).end();
