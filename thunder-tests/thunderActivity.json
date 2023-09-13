@@ -18,13 +18,18 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products/2",
-    "url": "http://localhost:3000/products/2",
+    "url": "http://localhost:3000/sales",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-07-04T19:27:13.582Z",
-    "modified": "2022-07-04T19:27:13.599Z",
+    "modified": "2022-07-11T01:12:41.329Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n      \"productId\": 1,\n      \"quantity\":1\n    }",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -32,16 +37,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/sales",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-07-04T19:27:58.107Z",
-    "modified": "2022-07-04T20:12:17.330Z",
+    "modified": "2022-07-11T17:13:54.719Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"Caderno\"\n  }",
+      "raw": "{\n      \"date\": \n    };\n    ",
       "form": []
     },
     "tests": []
