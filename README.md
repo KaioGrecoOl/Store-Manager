@@ -4,7 +4,7 @@
 
 O Projeto foi realizado como último exercício do Bloco 23, onde tive oportunidade de colocar em prática os conhecimentos adquridos no respecrtivo bloco sobre padrões arquiteturais, usando a arquitetura em camadas (model-service-controller), bem como conhecimentos sobre REST, criando uma API completamente RESTful.
 
-The Project was developed at the end of Unit 22, where I had to put into practice the knowledge acquired in the respective block on architectural patterns, using the layered architecture (model-service-controller), as well as knowledge about REST, creating an API completely RESTful.
+The Project was developed at the end of Unit 23, where I had to put into practice the knowledge acquired in the respective block on architectural patterns, using the layered architecture (model-service-controller), as well as knowledge about REST, creating an API completely RESTful.
 
 # Objetivo / Objective
 
